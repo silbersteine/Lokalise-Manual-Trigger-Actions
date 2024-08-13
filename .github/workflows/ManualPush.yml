@@ -38,7 +38,7 @@ jobs:
         run: |
 
             if [ "${{ github.ref_name }}" = "main" ]; then
-              changed_files=$(git diff --name-only HEAD~1 HEAD -- '${{ vars.LOKALISE_FOLDER_PATH }}/${{ vars.LOKALISE_SOURCE_LANG }}/**.json')
+              changed_files=$(git diff --name-only HEAD~1 HEAD -- '${{ env.VAR_LOAKLISE_FOLDER_PATH }}/${{ env.VAR_LOKALISE_SOURCE_LANG_ISO }}/**.json')
             else 
               changed_files=$(git diff --name-only ${{ github.ref_name }}-main...${{ github.ref_name }}-current -- '${{ env.VAR_LOAKLISE_FOLDER_PATH }}/${{ env.VAR_LOKALISE_SOURCE_LANG_ISO }}/**.json')
             fi 
