@@ -36,12 +36,12 @@ jobs:
       # Push the listed localization files to Lokalise
       - name: Push localization files to Lokalise
         run: |
-
             if [ "${{ github.ref_name }}" = "main" ]; then
               changed_files=$(git diff --name-only HEAD~1 HEAD -- '${{ env.VAR_LOKALISE_FOLDER_PATH }}/${{ env.VAR_LOKALISE_SOURCE_LANG_ISO }}/**.json')
             else 
-              changed_files=$(git diff --name-only ${{ github.ref_name }}-main...${{ github.ref_name }}-current -- '${{ env.VAR_LOKALISE_FOLDER_PATH }}/${{ env.VAR_LOKALISE_SOURCE_LANG_ISO }}/**.json')
-            fi 
+              git fetch origin main
+              changed_files=$(git diff --name-status origin/main...${{ github.ref_name }} -- '${{ env.VAR_LOKALISE_FOLDER_PATH }}/${{ env.VAR_LOKALISE_SOURCE_LANG_ISO }}/**.json' | grep -E '^[AM]' | cut -f2-)
+            fi
 
             echo "Changed files:"
             echo "$changed_files"
