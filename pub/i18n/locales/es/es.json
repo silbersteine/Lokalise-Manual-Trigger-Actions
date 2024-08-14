@@ -4,12 +4,12 @@
     "good_night": "Buenas noches",
     "goodbye": "Adiós",
     "hello": "Hola",
+    "new key": "nuevo",
     "no": "No",
     "please": "Por favor",
+    "push from main": "empujado",
     "sorry": "Lo siento",
     "thank_you": "Gracias",
     "welcome": "Bienvenido",
-    "yes": "No",
-    "merge_request": "Change"
-    
+    "yes": "Cambiar"
 }
